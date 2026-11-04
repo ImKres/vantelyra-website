@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex">
+<title>Vantelyra gallery 3D source</title>
+<!-- Source for the 3D renders in assets/gallery/ (server-stack, security-shield, vantelyra-v, datacenter-aisle).
+     Open this file through a local server (py -m http.server 8080) and add ?scene=vmark, ?scene=stack, ?scene=shield or ?scene=aisle.
+     It previews the scene turning. The site itself does not load this file. -->
+<style>html,body{margin:0;background:#000;display:grid;place-items:center;min-height:100vh}canvas{max-width:100%;height:auto}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.setPixelRatio(1);
+document.body.appendChild(renderer.domElement);
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+function studioEnv() {
+  const env = new THREE.Scene();
+  env.add(new THREE.Mesh(new THREE.SphereGeometry(20, 32, 16), new THREE.MeshBasicMaterial({ color: "#0b1219", side: THREE.BackSide })));
+  const box = (w, h, color, intensity, pos, look) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(color).multiplyScalar(intensity), side: THREE.DoubleSide }));
+    m.position.set(...pos); m.lookAt(...look); env.add(m);
+  };
+  box(9, 5, "#ffffff", 3.2, [-6, 7, 6], [0, 0, 0]);     // big key softbox, upper left front
+  box(1.6, 12, "#ffffff", 2.2, [9, 1, 2], [0, 0, 0]);    // tall strip, right
+  box(12, 1.2, "#7fe9df", 2.0, [0, 3, -9], [0, 0, 0]);   // teal strip behind
+  box(6, 2, "#b9d4ff", .8, [-8, -1, -3], [0, 0, 0]);    // cool kicker left
+  box(18, 8, "#a9c4d8", 1.3, [0, 6, 14], [0, 0, 0]);    // soft front fill behind the camera
+  return pmrem.fromScene(env, 0.02).texture;
+}
+const studioTex = studioEnv();
+
+function gradientTexture(w, h, draw) {
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const g = c.getContext("2d"); draw(g, w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function radialBg(inner, outer, cx = .5, cy = .45) {
+  return gradientTexture(1024, 1024, (g, w, h) => {
+    const r = g.createRadialGradient(w * cx, h * cy, 0, w * cx, h * cy, w * .75);
+    r.addColorStop(0, inner); r.addColorStop(1, outer); g.fillStyle = r; g.fillRect(0, 0, w, h);
+  });
+}
+function glowSprite(color, size, opacity) {
+  const tex = gradientTexture(256, 256, (g, w, h) => {
+    const r = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2);
+    r.addColorStop(0, color); r.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = r; g.fillRect(0, 0, w, h);
+  });
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(size, size), new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity, depthWrite: false, blending: THREE.AdditiveBlending }));
+  return m;
+}
+function shapeFrom(points) {
+  const s = new THREE.Shape();
+  points.forEach(([x, y], i) => { const px = (x - 213.5) / 100, py = -(y - 182) / 100; i ? s.lineTo(px, py) : s.moveTo(px, py); });
+  s.closePath(); return s;
+}
+
+/* ---------- Scene 1: the V mark, glossy, dark studio ---------- */
+function buildVMark() {
+  const scene = new THREE.Scene();
+  scene.environment = studioTex;
+  scene.background = radialBg("#1a3a58", "#050c15", .5, .46);
+  const group = new THREE.Group();
+  const ext = { depth: .62, bevelEnabled: true, bevelThickness: .07, bevelSize: .05, bevelSegments: 8, curveSegments: 4 };
+  const navy = new THREE.MeshPhysicalMaterial({ color: "#2a6aa0", metalness: .35, roughness: .3, clearcoat: 1, clearcoatRoughness: .04, envMapIntensity: 1.1 });
+  const teal = new THREE.MeshPhysicalMaterial({ color: "#5ab3b5", metalness: .4, roughness: .18, clearcoat: 1, clearcoatRoughness: .04, emissive: "#0f3e40", emissiveIntensity: .25, envMapIntensity: 1.0 });
+  const a = new THREE.Mesh(new THREE.ExtrudeGeometry(shapeFrom([[20, 22], [215, 344], [261, 264], [120, 25]]), ext), navy);
+  const b = new THREE.Mesh(new THREE.ExtrudeGeometry(shapeFrom([[407, 20], [320, 20], [231, 166], [274, 239]]), ext), teal);
+  [a, b].forEach((m) => { m.geometry.translate(0, 0, -.31); m.castShadow = true; group.add(m); });
+  group.position.y = .25;
+  scene.add(group);
+  // invisible floor that only catches a soft shadow, plus a teal light pool
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: .28 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -1.72; floor.receiveShadow = true; scene.add(floor);
+  const pool = glowSprite("rgba(87,190,185,0.9)", 6.5, .35); pool.rotation.x = -Math.PI / 2; pool.position.y = -1.7; scene.add(pool);
+  const glow = glowSprite("rgba(87,153,155,0.85)", 7, .55); glow.position.set(.4, .4, -2.2); scene.add(glow);
+  const key = new THREE.DirectionalLight("#ffffff", 1.4); key.position.set(-2, 8, 3); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.radius = 14; key.shadow.blurSamples = 20; scene.add(key);
+  const rim = new THREE.PointLight("#6fe0d8", 30, 20); rim.position.set(3.5, 2.5, -3); scene.add(rim);
+  const front = new THREE.DirectionalLight("#dfeefa", 1.1); front.position.set(-1.5, 2.5, 10); scene.add(front);
+  const camera = new THREE.PerspectiveCamera(30, 1, .1, 100);
+  const update = (t, aspect) => {
+    // t in [0,1): one full loop. Gentle sway rather than a full spin.
+    group.rotation.y = Math.sin(t * Math.PI * 2) * .55;
+    group.position.y = .25 + Math.sin(t * Math.PI * 4) * .05;
+    
+    camera.aspect = aspect;
+    const dist = aspect > 1.2 ? 9.6 : 11.2;
+    camera.position.set(0, 1.0, dist); camera.lookAt(0, .05, 0); camera.updateProjectionMatrix();
+  };
+  return { scene, camera, update };
+}
+
+/* ---------- Scene 2: server stack, light studio ---------- */
+function buildStack() {
+  const scene = new THREE.Scene();
+  scene.environment = envTex;
+  scene.background = gradientTexture(1024, 1024, (g, w, h) => {
+    const r = g.createLinearGradient(0, 0, 0, h); r.addColorStop(0, "#eef2f4"); r.addColorStop(.62, "#d9e0e5"); r.addColorStop(1, "#c3ccd3");
+    g.fillStyle = r; g.fillRect(0, 0, w, h);
+  });
+  const body = new THREE.MeshPhysicalMaterial({ color: "#f4f6f8", roughness: .32, metalness: .05, clearcoat: .7, clearcoatRoughness: .2 });
+  const glass = new THREE.MeshPhysicalMaterial({ color: "#123553", roughness: .12, metalness: .2, clearcoat: 1, clearcoatRoughness: .04 });
+  const led = new THREE.MeshStandardMaterial({ color: "#7ff0e2", emissive: "#57e0d0", emissiveIntensity: 2.2 });
+  const ledAmber = new THREE.MeshStandardMaterial({ color: "#ffd27a", emissive: "#ffb43a", emissiveIntensity: 1.6 });
+  const vent = new THREE.MeshStandardMaterial({ color: "#2a3e52", roughness: .6 });
+  const group = new THREE.Group();
+  const leds = [];
+  for (let i = 0; i < 3; i++) {
+    const y = i * .74;
+    const unit = new THREE.Mesh(new RoundedBoxGeometry(3.2, .62, 2.3, 5, .1), body);
+    unit.position.y = y; unit.castShadow = true; unit.receiveShadow = true; group.add(unit);
+    const panel = new THREE.Mesh(new RoundedBoxGeometry(2.92, .38, .06, 3, .025), glass);
+    panel.position.set(0, y, 1.15); group.add(panel);
+    for (let k = 0; k < 4; k++) {
+      const d = new THREE.Mesh(new THREE.BoxGeometry(.07, .07, .04), (i === 1 && k === 3) ? ledAmber : led);
+      d.position.set(-1.25 + k * .15, y, 1.19); group.add(d); leds.push(d);
+    }
+    for (let k = 0; k < 9; k++) {
+      const v = new THREE.Mesh(new THREE.BoxGeometry(.035, .22, .03), vent);
+      v.position.set(.35 + k * .11, y, 1.19); group.add(v);
+    }
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(.5, .035, .03), led);
+    bar.position.set(-.45, y - .1, 1.19); group.add(bar); leds.push(bar);
+  }
+  leds.forEach((d) => { const g = glowSprite(d.material === ledAmber ? "rgba(255,190,90,0.9)" : "rgba(110,240,225,0.9)", .34, .55); g.position.copy(d.position).setZ(d.position.z + .03); group.add(g); });
+  group.position.y = .31;
+  scene.add(group);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: .22 }));
+  floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+  const key = new THREE.DirectionalLight("#ffffff", 2.4); key.position.set(-4, 9, 5); key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 10; key.shadow.camera.left = -6; key.shadow.camera.right = 6; key.shadow.camera.top = 6; key.shadow.camera.bottom = -6; scene.add(key);
+  const fill = new THREE.DirectionalLight("#d8f0f0", .8); fill.position.set(6, 3, 4); scene.add(fill);
+  const camera = new THREE.PerspectiveCamera(28, 1, .1, 100);
+  const update = (t, aspect) => {
+    group.rotation.y = -.62 + Math.sin(t * Math.PI * 2) * .08;
+    camera.aspect = aspect; camera.position.set(4.6, 4.4, 8.6); camera.lookAt(0, .95, 0); camera.updateProjectionMatrix();
+  };
+  return { scene, camera, update };
+}
+
+/* ---------- Scene 3: security shield, navy studio ---------- */
+function buildShield() {
+  const scene = new THREE.Scene();
+  scene.environment = studioTex;
+  scene.background = radialBg("#2a6467", "#0a1f2f", .5, .4);
+  const s = new THREE.Shape();
+  s.moveTo(0, 1.55);
+  s.bezierCurveTo(.5, 1.25, .95, 1.18, 1.32, 1.2);
+  s.bezierCurveTo(1.36, .2, 1.05, -.95, 0, -1.55);
+  s.bezierCurveTo(-1.05, -.95, -1.36, .2, -1.32, 1.2);
+  s.bezierCurveTo(-.95, 1.18, -.5, 1.25, 0, 1.55);
+  const geo = new THREE.ExtrudeGeometry(s, { depth: .32, bevelEnabled: true, bevelThickness: .22, bevelSize: .16, bevelSegments: 12, curveSegments: 48 });
+  geo.translate(0, 0, -.16);
+  const mat = new THREE.MeshPhysicalMaterial({ color: "#f4fbfb", metalness: .08, roughness: .16, clearcoat: 1, clearcoatRoughness: .05, sheen: .4, sheenColor: new THREE.Color("#9fe3dc") });
+  const shield = new THREE.Mesh(geo, mat); shield.castShadow = true;
+  const inner = new THREE.Shape(); // inset face
+  const k = .78; s.getPoints(64).forEach((p, i) => i ? inner.lineTo(p.x * k, p.y * k + .02) : inner.moveTo(p.x * k, p.y * k + .02));
+  const innerMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(inner, { depth: .05, bevelEnabled: true, bevelThickness: .04, bevelSize: .03, bevelSegments: 6 }),
+    new THREE.MeshPhysicalMaterial({ color: "#2f8f92", metalness: .3, roughness: .2, clearcoat: 1, clearcoatRoughness: .05, emissive: "#16494b", emissiveIntensity: .4 }));
+  innerMesh.position.z = .36;
+  const path = new THREE.CatmullRomCurve3([new THREE.Vector3(-.5, .02, 0), new THREE.Vector3(-.12, -.36, 0), new THREE.Vector3(.58, .48, 0)], false, "catmullrom", 0);
+  const check = new THREE.Mesh(new THREE.TubeGeometry(path, 64, .1, 24, false), new THREE.MeshPhysicalMaterial({ color: "#ffffff", roughness: .12, clearcoat: 1, emissive: "#ffffff", emissiveIntensity: .15 }));
+  check.position.z = .5;
+  const caps = [path.getPoint(0), path.getPoint(1)].map((p) => { const c = new THREE.Mesh(new THREE.SphereGeometry(.1, 24, 16), check.material); c.position.copy(p).setZ(.5); return c; });
+  const group = new THREE.Group(); group.add(shield, innerMesh, check, ...caps); scene.add(group);
+  const glow = glowSprite("rgba(120,230,220,0.9)", 6, .45); glow.position.set(0, .2, -1.5); scene.add(glow);
+  const key = new THREE.DirectionalLight("#ffffff", 2); key.position.set(-3, 6, 5); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.radius = 10; scene.add(key);
+  const rim = new THREE.PointLight("#7ff0e2", 25, 15); rim.position.set(2.5, 2, -2); scene.add(rim);
+  const camera = new THREE.PerspectiveCamera(30, 1, .1, 100);
+  const update = (t, aspect) => {
+    group.rotation.y = -.42 + Math.sin(t * Math.PI * 2) * .3; group.rotation.x = -.06;
+    group.position.y = .05 + Math.sin(t * Math.PI * 2) * .06;
+    camera.aspect = aspect; camera.position.set(0, .5, 8.4); camera.lookAt(0, -.05, 0); camera.updateProjectionMatrix();
+  };
+  return { scene, camera, update };
+}
+
+/* ---------- Scene 4: data-centre aisle (background for the statement tile) ---------- */
+function buildAisle() {
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#060e16");
+  scene.fog = new THREE.FogExp2("#060e16", 0.085);
+  scene.environment = envTex;
+  scene.environmentIntensity = 0.18;
+  const rnd = (() => { let a = 7; return () => ((a = (a * 16807) % 2147483647) / 2147483647); })();   // repeatable
+
+  // Rack front: 1U servers with vents and status lights. Colour map + light map.
+  const face = (seed) => {
+    const W = 256, H = 940, units = 20, uh = H / units;
+    const col = document.createElement("canvas"); col.width = W; col.height = H;
+    const emi = document.createElement("canvas"); emi.width = W; emi.height = H;
+    const g = col.getContext("2d"), e = emi.getContext("2d");
+    g.fillStyle = "#0a1117"; g.fillRect(0, 0, W, H);
+    e.fillStyle = "#000"; e.fillRect(0, 0, W, H);
+    g.fillStyle = "#151f28"; g.fillRect(0, 0, 14, H); g.fillRect(W - 14, 0, 14, H);   // rails
+    for (let u = 0; u < units; u++) {
+      const y = u * uh;
+      if (rnd() < .12) continue;                                  // blank slot
+      const tall = rnd() < .2 ? 2 : 1;
+      const h = uh * tall - 4;
+      g.fillStyle = rnd() < .5 ? "#1b2833" : "#202e3a"; g.fillRect(18, y + 2, W - 36, h);
+      g.fillStyle = "#101920"; for (let k = 0; k < 16; k++) g.fillRect(110 + k * 7, y + 8, 3, h - 14);   // vents
+      const leds = 2 + Math.floor(rnd() * 4);
+      for (let k = 0; k < leds; k++) {
+        const r = rnd(); const c = r < .7 ? "#62f0de" : r < .85 ? "#7fb6ff" : "#ffb54a";
+        const x = 30 + k * 13, yy = y + h / 2;
+        g.fillStyle = c; g.fillRect(x, yy - 3, 6, 6);
+        e.fillStyle = c; e.fillRect(x - 1, yy - 4, 8, 8);
+      }
+      if (rnd() < .5) { g.fillStyle = "#62f0de"; g.fillRect(30, y + h - 7, 40 + rnd() * 30, 2); e.fillStyle = "#3aa89c"; e.fillRect(30, y + h - 7, 40 + rnd() * 30, 2); }
+      if (tall === 2) u++;
+    }
+    const t1 = new THREE.CanvasTexture(col); t1.colorSpace = THREE.SRGBColorSpace; t1.anisotropy = 8;
+    const t2 = new THREE.CanvasTexture(emi); t2.colorSpace = THREE.SRGBColorSpace;
+    return new THREE.MeshStandardMaterial({ map: t1, emissiveMap: t2, emissive: "#ffffff", emissiveIntensity: 2.4, roughness: .5, metalness: .35 });
+  };
+  const faces = [0, 1, 2, 3, 4].map(face);
+  const side = new THREE.MeshStandardMaterial({ color: "#0c141b", roughness: .45, metalness: .6 });
+  const top = new THREE.MeshStandardMaterial({ color: "#111b24", roughness: .6, metalness: .3 });
+  const rackGeo = new THREE.BoxGeometry(1.0, 2.2, 0.6);
+  const glowPos = [], glowCol = [];
+  for (const sideX of [-1.2, 1.2]) {
+    for (let i = 0; i < 46; i++) {
+      const z = 3.9 - i * 0.62;
+      const front = faces[(i * 3 + (sideX > 0 ? 1 : 0)) % faces.length];
+      const mats = sideX < 0 ? [front, side, top, side, side, side] : [side, front, top, side, side, side];
+      const rack = new THREE.Mesh(rackGeo, mats);
+      rack.position.set(sideX, 1.1, z); scene.add(rack);
+      // glow halos for a few of the lights
+      const fx = sideX < 0 ? sideX + 0.505 : sideX - 0.505;
+      for (let k = 0; k < 14; k++) {
+        const r = rnd();
+        glowPos.push(fx, 0.15 + rnd() * 1.95, z + (rnd() - .5) * .42);
+        const c = new THREE.Color(r < .72 ? "#55e6d4" : r < .86 ? "#78aaff" : "#ffad40");
+        glowCol.push(c.r, c.g, c.b);
+      }
+    }
+  }
+  const halo = gradientTexture(64, 64, (g, w, h) => { const r = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2); r.addColorStop(0, "rgba(255,255,255,1)"); r.addColorStop(.25, "rgba(255,255,255,.55)"); r.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+  const pg = new THREE.BufferGeometry();
+  pg.setAttribute("position", new THREE.Float32BufferAttribute(glowPos, 3));
+  pg.setAttribute("color", new THREE.Float32BufferAttribute(glowCol, 3));
+  scene.add(new THREE.Points(pg, new THREE.PointsMaterial({ size: .07, map: halo, vertexColors: true, transparent: true, opacity: .85, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true })));
+
+  // Raised floor with a soft sheen, ceiling light strips and cable trays.
+  const floorTex = gradientTexture(512, 512, (g, w, h) => {
+    g.fillStyle = "#0d151c"; g.fillRect(0, 0, w, h);
+    g.strokeStyle = "rgba(120,170,190,.10)"; g.lineWidth = 3;
+    for (let k = 0; k <= 4; k++) { g.beginPath(); g.moveTo(k * w / 4, 0); g.lineTo(k * w / 4, h); g.stroke(); g.beginPath(); g.moveTo(0, k * h / 4); g.lineTo(w, k * h / 4); g.stroke(); }
+  });
+  floorTex.wrapS = floorTex.wrapT = THREE.RepeatWrapping; floorTex.repeat.set(2.4, 30);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 30), new THREE.MeshStandardMaterial({ map: floorTex, roughness: .22, metalness: .55 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, -12); scene.add(floor);
+  const stripMat = new THREE.MeshStandardMaterial({ color: "#d9f3ff", emissive: "#cfefff", emissiveIntensity: 1.6 });
+  for (const x of [-0.55, 0.55]) { const strip = new THREE.Mesh(new THREE.BoxGeometry(.06, .02, 30), stripMat); strip.position.set(x, 2.62, -12); scene.add(strip); }
+  const trayMat = new THREE.MeshStandardMaterial({ color: "#101a22", roughness: .5, metalness: .5 });
+  for (const x of [-1.2, 1.2]) { const tray = new THREE.Mesh(new THREE.BoxGeometry(.7, .06, 30), trayMat); tray.position.set(x, 2.45, -12); scene.add(tray); }
+  const ceil = new THREE.Mesh(new THREE.PlaneGeometry(4, 30), new THREE.MeshStandardMaterial({ color: "#070d13", roughness: 1 }));
+  ceil.rotation.x = Math.PI / 2; ceil.position.set(0, 2.7, -12); scene.add(ceil);
+
+  scene.add(new THREE.HemisphereLight("#9fd7ff", "#05080c", .45));
+  for (let i = 0; i < 6; i++) { const l = new THREE.PointLight("#bfe8ff", 6, 6, 1.6); l.position.set(0, 2.4, -i * 4); scene.add(l); }
+  const teal = new THREE.PointLight("#4fd6c6", 10, 9, 1.4); teal.position.set(0, .4, -6); scene.add(teal);
+
+  const camera = new THREE.PerspectiveCamera(50, 1, .05, 60);
+  const update = (t, aspect) => {
+    camera.aspect = aspect; camera.position.set(0.18, 1.0, 1.9); camera.lookAt(-0.28, 1.05, -12); camera.updateProjectionMatrix();
+  };
+  return { scene, camera, update };
+}
+
+const builders = { vmark: buildVMark, stack: buildStack, shield: buildShield, aisle: buildAisle };
+const cache = {};
+window.renderFrame = (name, w, h, t) => {
+  const sc = cache[name] || (cache[name] = builders[name]());
+  renderer.setSize(w, h, false);
+  sc.update(t, w / h);
+  renderer.render(sc.scene, sc.camera);
+  return renderer.domElement.toDataURL("image/png");
+};
+window.ready = true;
+// Preview: loop the chosen scene (6-second cycle, same as the published video).
+const scene = new URLSearchParams(location.search).get("scene");
+if (scene && builders[scene]) {
+  const [w, h] = scene === "vmark" ? [924, 520] : scene === "aisle" ? [1120, 630] : [728, 546];
+  const t0 = performance.now();
+  const tick = (now) => { window.renderFrame(scene, w, h, ((now - t0) / 6000) % 1); requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+</script>
+</body></html>

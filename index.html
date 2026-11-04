@@ -3,389 +3,875 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Vantelyra Digital Solutions — Cloud, Data & Digital Operations." />
-  <meta name="theme-color" content="#0d2742" />
-  <title>Vantelyra Digital Solutions</title>
+  <title>Vantelyra Digital Solutions | Business IT, set up right and kept running</title>
+  <meta name="description" content="Vantelyra sets up, secures and supports the IT your business runs on: Microsoft 365 and Google Workspace, managed IT support, security, Power BI dashboards, automation and business websites. Fixed quotes, no lock-in." />
+  <link rel="canonical" href="https://vantelyra.com/" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vantelyra Digital Solutions" />
+  <meta property="og:title" content="Vantelyra | Business IT, set up right and kept running" />
+  <meta property="og:description" content="Remote IT support, security, cloud workspaces, data dashboards and automation for growing businesses. Fixed quotes, no lock-in." />
+  <meta property="og:url" content="https://vantelyra.com/" />
+  <meta property="og:image" content="https://vantelyra.com/assets/og.png?v=2" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Vantelyra Digital Solutions: Business IT, set up right and kept running." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vantelyra | Business IT, set up right and kept running" />
+  <meta name="twitter:description" content="Remote IT support, security, cloud workspaces, data dashboards and automation for growing businesses." />
+  <meta name="twitter:image" content="https://vantelyra.com/assets/og.png?v=2" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <script src="theme-init.js?v=66"></script>
+  <link rel="stylesheet" href="site.css?v=97" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Vantelyra Digital Solutions",
+    "url": "https://vantelyra.com/",
+    "logo": "https://vantelyra.com/assets/logo-mark.svg",
+    "image": "https://vantelyra.com/assets/og.png",
+    "email": "hello@vantelyra.com",
+    "description": "IT services for growing businesses: cloud workspace setup and migration, managed IT support, security essentials, Power BI dashboards, automation and business websites.",
+    "areaServed": "Worldwide",
+    "sameAs": [
+      "https://www.facebook.com/Vantelyra",
+      "https://www.linkedin.com/company/vantelyra",
+      "https://www.instagram.com/vantelyra/"
+    ]
+  }
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
 </head>
 <body>
+  <canvas class="page-rain" aria-hidden="true"></canvas>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Vantelyra Digital Solutions home">
-        <img src="assets/logo-horizontal.svg" alt="Vantelyra Digital Solutions" />
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="#top" aria-label="Vantelyra Digital Solutions, back to top">
+        <img class="brand-light" src="assets/logo-horizontal.svg" alt="" width="228" height="45" />
+        <img class="brand-dark" src="assets/logo-horizontal-dark.svg" alt="" width="228" height="45" />
       </a>
 
-      <button class="menu-toggle" aria-expanded="false" aria-controls="nav">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Open menu</span>
-      </button>
-
-      <nav id="nav" class="nav" aria-label="Main navigation">
+      <nav id="nav" class="nav" aria-label="Main">
         <a href="#services">Services</a>
-        <a href="#why-us">Why Vantelyra</a>
-        <a href="#work">Capabilities</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
-        <a class="btn btn-small btn-outline" href="#contact">Contact</a>
+        <a href="#process">How We Work</a>
+        <a href="#team">Team</a>
+        <a href="#it-check">IT Check</a>
+        <button class="nav-theme" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13.1A8.6 8.6 0 0 1 10.9 3.5 8.6 8.6 0 1 0 20.5 13.1Z" /></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" /></svg>
+          <span class="when-light">Dark Mode</span><span class="when-dark">Light Mode</span>
+        </button>
+        <a class="btn btn-primary btn-small nav-cta" href="#contact">Contact Us</a>
       </nav>
+
+      <div class="header-tools">
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">DIGITAL CONSULTING & BUSINESS TRANSFORMATION</div>
-          <h1>We help your business <span>operate smarter.</span></h1>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <!-- Soft glow on the right of the opening screen. -->
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Business IT, set up right and <span class="hl">kept running<svg class="hl-line" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 17 C 70 6, 150 5, 297 11" pathLength="1" /></svg></span>.</h1>
           <p class="hero-lead">
-            Vantelyra Digital Solutions brings together cloud infrastructure, data analytics,
-            automation, digital marketing, and business operations — helping your business
-            move faster with clearer ownership and fewer handoffs.
+            Vantelyra brings corporate-grade IT practice to small and growing businesses. We set up and secure the systems your team relies on, support your people day to day, and turn your data into reporting you can act on, with fixed quotes and one accountable team.
           </p>
-
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Start a Conversation</a>
-            <a class="btn btn-secondary" href="#services">Explore Services</a>
+            <a class="btn btn-primary btn-go" href="#it-check">Take the 2-Minute IT Check<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" /></svg></a>
+            <a class="btn btn-secondary" href="#walkthrough">See It in Action</a>
           </div>
-
-          <div class="trust-row" aria-label="Core capabilities">
-            <span>Cloud Infrastructure</span>
-            <span>Data & Analytics</span>
-            <span>Digital Marketing</span>
-            <span>Business Operations</span>
-            <span>Automation & Workflow</span>
-          </div>
+          <ul class="hero-promises" aria-label="What every client gets">
+            <li>Fixed quote before any work starts</li>
+            <li>A reply within one business day</li>
+            <li>You own every account and file</li>
+          </ul>
         </div>
 
-        <div class="hero-visual reveal delay-1" aria-hidden="true">
-          <div class="hero-v5-floating">
-            <img src="assets/logo-mark.svg" alt="" />
+        <div class="hero-visual">
+          <!-- Decorative scene around the V. Nothing here sits on the V itself:
+               the rings are behind it and the cards float in the free space around it. -->
+          <div class="hero-story" aria-hidden="true">
+            <div class="hs-backdrop"><div class="hs-halo"></div></div>
+
+            <div class="hs-float hs-task" data-roam="top">
+              <div class="hs-window2">
+                <span class="hs-bar"><i></i><i></i><i></i></span>
+                <span class="w2-body">
+                  <i class="w2-wide"></i>
+                  <i class="w2-tall"></i>
+                  <span class="w2-done">Approved<em>✓</em></span>
+                  <i class="w2-sq"></i>
+                </span>
+              </div>
+              <span class="hs-tag">
+                <span class="hs-tag-pills"><b>Consult</b><b>Assess</b><b>Quote</b><b>Deliver</b></span>
+                <svg class="hs-tag-cursor" viewBox="0 0 24 24"><path d="M5 3.5 19.5 10l-6.3 2.3-2.4 6.6Z" /></svg>
+              </span>
+            </div>
+
+            <div class="hs-float hs-kpi">
+              <span class="hs-kpi-top"><small>System uptime</small><em>Live</em></span>
+              <b>99.98%</b>
+              <svg class="hs-spark" viewBox="0 0 120 32" preserveAspectRatio="none"><path class="hs-spark-fill" d="M0 24 L15 20 L30 22 L45 14 L60 16 L75 9 L90 11 L105 5 L120 7 L120 32 L0 32 Z" /><path class="hs-spark-line" d="M0 24 L15 20 L30 22 L45 14 L60 16 L75 9 L90 11 L105 5 L120 7" /></svg>
+            </div>
+
+            <div class="hs-float hs-app">
+              <span class="hs-bar"><i></i><i></i><i></i><span class="hs-url"></span></span>
+              <span class="hs-app-body">
+                <span class="hs-side"><i class="on"></i><i></i><i></i><i></i></span>
+                <span class="hs-app-main">
+                  <span class="hs-lines"><i></i><i></i><i></i></span>
+                  <span class="hs-chart"><i style="--h:45%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:85%"></i><i style="--h:100%"></i></span>
+                  <span class="hs-pills">
+                    <b style="--c:#1d5f9a">Migrate<em>✓</em></b>
+                    <b style="--c:#2b3474">Secure<em>✓</em></b>
+                    <b style="--c:#1f6a6e">Support<em>✓</em></b>
+                    <b style="--c:#8f5410">Report<em>✓</em></b>
+                    <b style="--c:#573b8c">Automate<em>✓</em></b>
+                    <svg class="hs-cursor" viewBox="0 0 24 24"><path d="M5 3.5 19.5 10l-6.3 2.3-2.4 6.6Z" /></svg>
+                  </span>
+                </span>
+              </span>
+            </div>
+
+            <!-- A short chat that plays out around the V: a client asks (left), Vantelyra
+                 types and replies (right), the client reacts and says thanks. -->
+            <div class="hs-msg hs-m1 from-client">
+              <span class="hs-av">MS</span>
+              <span class="hs-msg-body"><small>Maria · Sales</small><span class="hs-bubble">New hire starts Monday. Can you set her up?</span></span>
+            </div>
+            <div class="hs-msg hs-typing from-us">
+              <span class="hs-av hs-av-v"><svg viewBox="0 0 427 364"><path d="M20 22 L215 344 L261 264 L120 25 Z" /><path class="v2" d="M407 20 L320 20 L231 166 L274 239 Z" /></svg></span>
+              <span class="hs-bubble"><i></i><i></i><i></i></span>
+            </div>
+            <div class="hs-msg hs-m2 from-us">
+              <span class="hs-av hs-av-v"><svg viewBox="0 0 427 364"><path d="M20 22 L215 344 L261 264 L120 25 Z" /><path class="v2" d="M407 20 L320 20 L231 166 L274 239 Z" /></svg></span>
+              <span class="hs-msg-body">
+                <small>Vantelyra Support</small>
+                <span class="hs-bubble">All set ✓ Laptop, email and shared drives are ready.<span class="hs-heart"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2Z" /></svg></span></span>
+                <em class="hs-seen">Seen</em>
+              </span>
+            </div>
+            <div class="hs-msg hs-m3 from-client">
+              <span class="hs-av">MS</span>
+              <span class="hs-msg-body"><span class="hs-bubble">That was quick. Thank you!</span></span>
+            </div>
+
+            <!-- A second client message for the left side of the page. It only shows
+                 when script.js finds free space for it around the headline. -->
+            <div class="hs-msg hs-m4 from-client" data-roam="bottom" data-roam-only>
+              <span class="hs-av hs-av-2">JT</span>
+              <span class="hs-msg-body"><small>James · Finance</small><span class="hs-bubble">Can we add two laptops for next week?</span></span>
+            </div>
+
+            <!-- Help desk window, in the same style as the app window -->
+            <div class="hs-float hs-desk">
+              <span class="hs-bar"><i></i><i></i><i></i><span class="hs-url"></span></span>
+              <span class="hs-desk-head"><b>Tickets</b><small>Avg. fix 18 min</small></span>
+              <span class="hs-desk-rows">
+                <span class="hs-row"><code>#1042</code><i></i><span class="hs-st"><b class="st-done">Resolved</b></span></span>
+                <span class="hs-row"><code>#1043</code><i></i><span class="hs-st hs-st-a"><b class="st-prog">In progress</b><b class="st-done">Resolved</b></span></span>
+                <span class="hs-row"><code>#1044</code><i></i><span class="hs-st hs-st-b"><b class="st-open">Open</b><b class="st-prog">In progress</b></span></span>
+              </span>
+            </div>
+          </div>
+          <button class="hero-mark" id="heroThemeToggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <svg class="theme-v-mark" viewBox="0 0 427 364" aria-hidden="true">
+              <path class="v-primary" d="M20 22 L215 344 L261 264 L120 25 Z" />
+              <path class="v-accent" d="M407 20 L320 20 L231 166 L274 239 Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-wash" id="services" aria-labelledby="services-heading" data-fx="circuit">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="services-heading">Everything your IT needs, from one team.</h2>
+          <p>Start with one service or combine several. Every project gets a fixed quote after a free consultation, and monthly support is priced per user with no lock-in.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service" data-tone="workspace">
+            <div class="service-banner" aria-hidden="true"><svg class="service-ghost" viewBox="0 0 240 84" preserveAspectRatio="xMidYMid slice"><path class="g-l" d="M22 30a8 8 0 0 1 15-3.5A6.5 6.5 0 1 1 39 39H23a4.6 4.6 0 0 1-1-9Z"/><text x="80" y="15">Microsoft 365 · Google Workspace</text><rect class="g-f" x="80" y="21" width="150" height="44" rx="6"/><path class="g-l" d="M88 30h8l2 2h8v8H88Z"/><rect class="g-b" x="112" y="33" width="58" height="3.5" rx="1.75"/><path class="g-l" d="M88 46h8l2 2h8v8H88Z"/><rect class="g-b" x="112" y="49" width="42" height="3.5" rx="1.75"/><text class="g-sm" x="182" y="34">Migrating</text><rect class="g-b" x="182" y="40" width="40" height="4" rx="2"/><rect class="g-s" x="182" y="40" width="33" height="4" rx="2"/><text class="g-sm" x="182" y="54">82%</text><text x="176" y="78">Azure · AWS</text></svg><svg class="service-icon" viewBox="0 0 24 24"><path d="M7 18h10.5a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.4 9.1 4.5 4.5 0 0 0 7 18Z" /></svg></div>
+            <div class="service-body">
+              <h3>Workspace Setup and Migration</h3>
+              <p>Microsoft 365 or Google Workspace, set up right.</p>
+              <ul><li>Email on your domain</li><li>Shared drives</li><li>Account migration</li></ul>
+              <a class="text-link" href="#contact" data-quote="workspace">Ask for a Quote</a>
+            </div>
+          </article>
+
+          <article class="service" data-tone="managed">
+            <div class="service-banner" aria-hidden="true"><svg class="service-ghost" viewBox="0 0 240 84" preserveAspectRatio="xMidYMid slice"><text x="80" y="15">Help desk</text><g><rect class="g-f" x="80" y="21" width="150" height="15" rx="4"/><circle class="g-s" cx="89" cy="28.5" r="3.5"/><rect class="g-b" x="98" y="27" width="62" height="3.5" rx="1.75"/><rect class="g-s" x="186" y="24.5" width="38" height="8" rx="4"/><text class="g-pill" x="192" y="30.5">Resolved</text></g><g><rect class="g-f" x="80" y="40" width="150" height="15" rx="4"/><circle class="g-s" cx="89" cy="47.5" r="3.5"/><rect class="g-b" x="98" y="46" width="50" height="3.5" rx="1.75"/><rect class="g-o" x="186" y="43.5" width="38" height="8" rx="4"/><text class="g-pill" x="190" y="49.5">In progress</text></g><g><rect class="g-f" x="80" y="59" width="150" height="15" rx="4"/><circle class="g-s" cx="89" cy="66.5" r="3.5"/><rect class="g-b" x="98" y="65" width="70" height="3.5" rx="1.75"/><rect class="g-o" x="186" y="62.5" width="38" height="8" rx="4"/><text class="g-pill" x="198" y="68.5">Open</text></g></svg><svg class="service-icon" viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1" /><rect x="3" y="13" width="4" height="6" rx="1.5" /><rect x="17" y="13" width="4" height="6" rx="1.5" /><path d="M19 19c0 1.5-1.5 2.5-4 2.5h-2" /></svg></div>
+            <div class="service-body">
+              <h3>Managed IT Support</h3>
+              <p>Your outsourced IT team, on a monthly plan.</p>
+              <ul><li>Remote help desk</li><li>Staff onboarding</li><li>Updates and backups</li></ul>
+              <a class="text-link" href="#contact" data-quote="managed">Ask for a Quote</a>
+            </div>
+          </article>
+
+          <article class="service" data-tone="security">
+            <div class="service-banner" aria-hidden="true"><svg class="service-ghost" viewBox="0 0 240 84" preserveAspectRatio="xMidYMid slice"><rect class="g-f" x="92" y="8" width="112" height="68" rx="8"/><text x="105" y="24">Approve sign-in?</text><text class="g-big" x="134" y="48">42</text><rect class="g-o" x="105" y="57" width="40" height="11" rx="5.5"/><text class="g-pill" x="118" y="64.5">Deny</text><rect class="g-s" x="151" y="57" width="40" height="11" rx="5.5"/><text class="g-pill g-dark" x="160" y="64.5">Approve</text><path class="g-l" d="M222 14l-9 3.5v7c0 6 4 10.5 9 12 5-1.5 9-6 9-12v-7Z"/><path class="g-l" d="m217.5 25 3 3 5.5-6"/><text class="g-sm" x="210" y="56">MFA on</text></svg><svg class="service-icon" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.3 7.5 9.5 4.4-1.2 7.5-4.9 7.5-9.5V6L12 3Z" /><path d="m8.8 12.2 2.2 2.2 4.3-4.6" /></svg></div>
+            <div class="service-body">
+              <h3>Security Essentials</h3>
+              <p>Close the gaps attackers look for first.</p>
+              <ul><li>Two-step sign-in</li><li>Password manager</li><li>Email protection</li></ul>
+              <a class="text-link" href="#contact" data-quote="security">Ask for a Quote</a>
+            </div>
+          </article>
+
+          <article class="service" data-tone="data">
+            <div class="service-banner" aria-hidden="true"><svg class="service-ghost" viewBox="0 0 240 84" preserveAspectRatio="xMidYMid slice"><text x="80" y="15">Power BI · Excel</text><rect class="g-f" x="80" y="21" width="46" height="20" rx="4"/><text class="g-sm" x="85" y="30">Revenue</text><text x="85" y="38">$48.2k</text><rect class="g-f" x="132" y="21" width="46" height="20" rx="4"/><text class="g-sm" x="137" y="30">Growth</text><text x="137" y="38">+15%</text><rect class="g-f" x="184" y="21" width="46" height="20" rx="4"/><text class="g-sm" x="189" y="30">Clients</text><text x="189" y="38">1,284</text><rect class="g-b" x="84" y="64" width="8" height="12" rx="1.5"/><rect class="g-b" x="96" y="58" width="8" height="18" rx="1.5"/><rect class="g-b" x="108" y="61" width="8" height="15" rx="1.5"/><rect class="g-b" x="120" y="53" width="8" height="23" rx="1.5"/><rect class="g-s" x="132" y="48" width="8" height="28" rx="1.5"/><path class="g-l" d="M152 72l14-8 12 4 14-12 14 3 16-14"/><circle class="g-s" cx="222" cy="45" r="2.5"/></svg><svg class="service-icon" viewBox="0 0 24 24"><path d="M4 20h16" /><path d="M7 16v-5" /><path d="M12 16V6" /><path d="M17 16v-8" /></svg></div>
+            <div class="service-body">
+              <h3>Data and Dashboards</h3>
+              <p>Your numbers in one place, always current.</p>
+              <ul><li>Power BI dashboards</li><li>Data cleaning</li><li>Scheduled refresh</li></ul>
+              <a class="text-link" href="#contact" data-quote="data">Ask for a Quote</a>
+            </div>
+          </article>
+
+          <article class="service" data-tone="automation">
+            <div class="service-banner" aria-hidden="true"><svg class="service-ghost" viewBox="0 0 240 84" preserveAspectRatio="xMidYMid slice"><text x="80" y="15">Zapier · Make · Power Automate</text><rect class="g-f" x="80" y="32" width="40" height="20" rx="5"/><text x="88" y="45">Form</text><rect class="g-f" x="136" y="32" width="40" height="20" rx="5"/><text x="146" y="45">CRM</text><rect class="g-s" x="192" y="32" width="40" height="20" rx="5"/><text class="g-dark" x="196" y="45">Invoice</text><path class="g-l" d="M121 42h12m-3-3 3 3-3 3M177 42h12m-3-3 3 3-3 3"/><circle class="g-s" cx="127" cy="42" r="1.8"/><text class="g-sm" x="80" y="70">Runs on its own · 214 times a month</text></svg><svg class="service-icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="18" r="2.5" /><path d="M8.5 6H14a4 4 0 0 1 4 4v5.5" /><path d="m15.5 13 2.5 2.5 2.5-2.5" /></svg></div>
+            <div class="service-body">
+              <h3>Automation and Integration</h3>
+              <p>Stop copying data between apps by hand.</p>
+              <ul><li>Workflow mapping</li><li>Zapier or Make flows</li><li>App and API links</li></ul>
+              <a class="text-link" href="#contact" data-quote="automation">Ask for a Quote</a>
+            </div>
+          </article>
+
+          <article class="service" data-tone="website">
+            <div class="service-banner" aria-hidden="true"><svg class="service-ghost" viewBox="0 0 240 84" preserveAspectRatio="xMidYMid slice"><rect class="g-f" x="80" y="8" width="150" height="70" rx="6"/><path class="g-l" d="M80 19h150"/><circle class="g-s" cx="87" cy="13.5" r="1.8"/><circle class="g-s" cx="93" cy="13.5" r="1.8"/><circle class="g-s" cx="99" cy="13.5" r="1.8"/><rect class="g-o" x="108" y="10.5" width="66" height="6" rx="3"/><text class="g-pill" x="113" y="15.2">yourbusiness.com</text><rect class="g-s" x="88" y="27" width="76" height="5" rx="2.5"/><rect class="g-b" x="88" y="36" width="56" height="4" rx="2"/><rect class="g-s" x="88" y="45" width="28" height="8" rx="4"/><rect class="g-b" x="176" y="27" width="46" height="26" rx="4"/><rect class="g-b" x="88" y="60" width="40" height="12" rx="3"/><rect class="g-b" x="134" y="60" width="40" height="12" rx="3"/><rect class="g-b" x="180" y="60" width="42" height="12" rx="3"/></svg><svg class="service-icon" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.5" /><path d="M3 9h18" /><path d="M6.5 6.8h.01M9 6.8h.01" /></svg></div>
+            <div class="service-body">
+              <h3>Business Websites</h3>
+              <p>A fast, secure site you can update yourself.</p>
+              <ul><li>Design and build</li><li>Domain and hosting</li><li>Updates after launch</li></ul>
+              <a class="text-link" href="#contact" data-quote="website">Ask for a Quote</a>
+            </div>
+          </article>
+        </div>
+
+        <article class="featured-service" aria-labelledby="svc-health">
+          <div class="featured-copy">
+            <p class="badge">Starts With a Free Consultation</p>
+            <h3 id="svc-health">IT Health Check</h3>
+            <p class="featured-lead">A written review of your accounts, backups, devices, security and licences, with every issue ranked by risk and a clear fix for each.</p>
+          </div>
+          <div class="featured-actions">
+            <a class="btn btn-primary" href="#contact" data-quote="consult">Book a Free Consultation</a>
+            <a class="text-link" href="#contact" data-quote="health">Ask for a Health Check Quote</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WALKTHROUGH (interactive, video-style) -->
+    <section class="section" id="walkthrough" aria-labelledby="walkthrough-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="walkthrough-heading">See It in Action</h2>
+          <p>A short walkthrough of the work we take off your plate, from a new starter’s first morning to the report on your desk. It plays like a video; pick any chapter to jump in.</p>
+        </div>
+
+        <div class="player" data-player>
+          <div class="player-stage" aria-hidden="true">
+            <div class="screen-bar">
+              <span class="screen-title"><svg viewBox="0 0 427 364"><path d="M20 22 L215 344 L261 264 L120 25 Z" /><path class="accent" d="M407 20 L320 20 L231 166 L274 239 Z" /></svg><span data-screen-title>Onboarding</span></span>
+              <span class="screen-clock" data-clock>Mon 08:41</span>
+            </div>
+
+            <!-- 1. New starter -->
+            <div class="scene" data-scene data-title="Onboarding" data-clock-text="Mon 08:41">
+              <div class="sc-head" data-at="0">
+                <span class="sc-avatar">MS</span>
+                <div><strong>Maria Santos joins Sales today</strong><span>New starter request from Operations</span></div>
+              </div>
+              <ul class="sc-checklist">
+                <li data-at="700"><i></i><span>Company email account created</span><em>Microsoft 365</em></li>
+                <li data-at="1500"><i></i><span>Two-step sign-in enrolled</span><em>Authenticator</em></li>
+                <li data-at="2300"><i></i><span>Laptop set up and encrypted</span><em>Ready to ship</em></li>
+                <li data-at="3100"><i></i><span>Access to Sales shared drive</span><em>Least privilege</em></li>
+                <li data-at="3900"><i></i><span>Welcome guide sent</span><em>Email</em></li>
+              </ul>
+              <div class="sc-toast good" data-at="4800"><b>Ready for day one</b><span>Everything set up before 09:00</span></div>
+            </div>
+
+            <!-- 2. Security -->
+            <div class="scene" data-scene data-title="Security" data-clock-text="Tue 10:24">
+              <div class="sc-alert" data-at="0">
+                <span class="sc-alert-icon"></span>
+                <div><strong>Unusual sign-in attempt</strong><span>j.cruz@yourcompany.com, new device, new country</span></div>
+              </div>
+              <ol class="sc-timeline">
+                <li data-at="900"><b>10:24</b><span>Two-step sign-in challenge failed</span></li>
+                <li data-at="1800"><b>10:24</b><span>Sign-in blocked automatically</span></li>
+                <li data-at="2800"><b>10:31</b><span>Password reset and all sessions signed out</span></li>
+                <li data-at="3800"><b>10:36</b><span>Owner sent a plain-English summary</span></li>
+              </ol>
+              <div class="sc-toast good" data-at="4800"><b>Contained</b><span>No data accessed</span></div>
+            </div>
+
+            <!-- 3. Dashboard -->
+            <div class="scene" data-scene data-title="Weekly Dashboard" data-clock-text="Mon 07:00">
+              <div class="sc-kpis">
+                <div data-at="200"><span>Revenue, June</span><strong data-count="48.2" data-prefix="$" data-suffix="k" data-decimals="1">$0k</strong></div>
+                <div data-at="500"><span>Unpaid invoices</span><strong data-count="12.4" data-prefix="$" data-suffix="k" data-decimals="1">$0k</strong></div>
+                <div data-at="800"><span>Days to get paid</span><strong data-count="21">0</strong></div>
+              </div>
+              <div class="sc-chart">
+                <span class="sc-chart-title">Monthly revenue, $k</span>
+                <div class="sc-bars">
+                  <i data-at="1300" style="--v:62"></i><i data-at="1500" style="--v:68"></i><i data-at="1700" style="--v:74"></i>
+                  <i data-at="1900" style="--v:71"></i><i data-at="2100" style="--v:84"></i><i data-at="2300" style="--v:96" class="peak"></i>
+                </div>
+                <div class="sc-bar-labels"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+                <span class="sc-tip" data-at="3200">June: $48.2k, up 15%</span>
+              </div>
+              <div class="sc-toast" data-at="4200"><b>Refreshed automatically</b><span>Every Monday at 07:00</span></div>
+            </div>
+
+            <!-- 4. Automation -->
+            <div class="scene" data-scene data-title="Automation" data-clock-text="Wed 14:05">
+              <div class="sc-flow">
+                <div class="sc-node" data-at="300"><b>Website form</b><span>New inquiry</span></div>
+                <div class="sc-link" data-at="900"></div>
+                <div class="sc-node" data-at="1300"><b>CRM</b><span>Contact created</span></div>
+                <div class="sc-link" data-at="1900"></div>
+                <div class="sc-node" data-at="2300"><b>Team chat</b><span>Sales notified</span></div>
+                <div class="sc-link" data-at="2900"></div>
+                <div class="sc-node" data-at="3300"><b>Task list</b><span>Follow-up due tomorrow</span></div>
+              </div>
+              <div class="sc-stats">
+                <div data-at="3900"><span>Leads handled automatically this week</span><strong data-count="23">0</strong></div>
+                <div data-at="4300"><span>Manual copy-and-paste steps</span><strong>0</strong></div>
+              </div>
+              <p class="sc-log-title" data-at="4700">Recent runs</p>
+              <ol class="sc-timeline sc-log">
+                <li data-at="4900"><b>13:52</b><span>Harbor Dental inquiry routed to Sales</span></li>
+                <li data-at="5200"><b>11:20</b><span>Northwind Cafe inquiry routed to Sales</span></li>
+                <li data-at="5500"><b>09:07</b><span>Blue Fern Studio inquiry routed to Support</span></li>
+              </ol>
+            </div>
+
+            <!-- 5. Health Check report -->
+            <div class="scene" data-scene data-title="IT Health Check" data-clock-text="Fri 16:30">
+              <div class="sc-report-head" data-at="0"><strong>IT Health Check report</strong><span>Example Co., 12 staff</span></div>
+              <ul class="sc-report">
+                <li data-at="600"><span>Backups</span><b class="status risk">At risk</b></li>
+                <li data-at="1100"><span>Email protection</span><b class="status risk">At risk</b></li>
+                <li data-at="1600"><span>Two-step sign-in</span><b class="status warn">7 of 12</b></li>
+                <li data-at="2100"><span>Offboarding</span><b class="status warn">Partial</b></li>
+                <li data-at="2600"><span>Devices and updates</span><b class="status good">Good</b></li>
+              </ul>
+              <div class="sc-priority" data-at="3400"><b>First fix</b><span>Test a full restore of the shared drive.</span></div>
+              <div class="sc-toast" data-at="4500"><b>Fixed quote attached</b><span>Approve it and we start</span></div>
+            </div>
+          </div>
+
+          <div class="player-side">
+            <ol class="chapters" aria-label="Walkthrough chapters">
+              <li><button type="button" class="chapter" data-chapter><span class="chapter-bar"><i></i></span><strong>A New Starter, Ready on Day One</strong><span>Accounts, sign-in, laptop and access set up before they arrive.</span></button></li>
+              <li><button type="button" class="chapter" data-chapter><span class="chapter-bar"><i></i></span><strong>A Risky Sign-In, Stopped</strong><span>Two-step sign-in blocks the attempt; we lock it down and tell you what happened.</span></button></li>
+              <li><button type="button" class="chapter" data-chapter><span class="chapter-bar"><i></i></span><strong>Your Numbers, Every Monday</strong><span>A Power BI dashboard that refreshes itself.</span></button></li>
+              <li><button type="button" class="chapter" data-chapter><span class="chapter-bar"><i></i></span><strong>Admin That Runs Itself</strong><span>New inquiries flow to your CRM, chat and task list without copy and paste.</span></button></li>
+              <li><button type="button" class="chapter" data-chapter><span class="chapter-bar"><i></i></span><strong>Your IT, Assessed in Writing</strong><span>Every finding ranked by risk, with the first fix and a fixed quote.</span></button></li>
+            </ol>
+            <div class="player-controls">
+              <button type="button" class="player-toggle" data-play aria-label="Pause walkthrough">
+                <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg>
+                <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5Z" /></svg>
+                <span data-play-label>Pause</span>
+              </button>
+              <span class="player-note">Illustration using demo data</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft" id="services">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">What we do</div>
-          <h2>Five capabilities. One coordinated digital partner.</h2>
-          <p>
-            Engage one capability for a focused requirement or combine several when a project
-            spans technology, data, automation, marketing, and day-to-day operations.
-          </p>
+    <!-- HOW WE WORK (one page): the four steps, then a gallery of what we deliver. Every gallery visual is made in-house. -->
+    <section class="section section-wash work-page" id="process" aria-labelledby="process-heading" data-fx="network">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="process-heading">How We Work</h2>
+          <p>Free to start. You approve a fixed price before any paid work begins.</p>
         </div>
+        <ol class="steps steps-line">
+          <li>
+            <span class="step-no" aria-hidden="true">1</span>
+            <h3>Free Consultation</h3>
+            <p>Tell us what’s slowing your team down. We ask questions; we don’t pitch.</p>
+          </li>
+          <li>
+            <span class="step-no" aria-hidden="true">2</span>
+            <h3>Free Assessment</h3>
+            <p>We review your current setup and show you the risks and the quick wins.</p>
+          </li>
+          <li>
+            <span class="step-no" aria-hidden="true">3</span>
+            <h3>Fixed Quote</h3>
+            <p>A written scope, timeline and price. Nothing starts until you approve it.</p>
+          </li>
+          <li>
+            <span class="step-no" aria-hidden="true">4</span>
+            <h3>Delivery and Support</h3>
+            <p>We set it up, document it and hand it over. Ongoing support is optional.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="inside-block" id="inside">
+        <div class="reel" data-reel>
+          <div class="reel-viewport" tabindex="0" role="region" aria-label="Gallery of our work areas">
+            <ul class="reel-track" data-reel-track>
 
-        <div class="service-grid service-grid-five">
-          <article class="service-card reveal">
-            <div class="icon-badge"><img src="assets/about-platform-abstract.svg" alt="" /></div>
-            <h3>Cloud & Infrastructure</h3>
-            <p>Reliable technical support for cloud, virtual workspace, and infrastructure operations.</p>
-            <ul>
-              <li>Cloud setup & support</li>
-              <li>Virtual workspace support</li>
-              <li>Monitoring & troubleshooting</li>
-              <li>Infrastructure optimization</li>
-              <li>Technical project support</li>
-            </ul>
-          </article>
+              <li class="tile dark statement photo wide">
+                <img class="tile-photo" src="assets/gallery/datacenter-aisle.webp" alt="" width="1120" height="630" loading="eager" decoding="async" />
+                <p><b>Corporate-grade IT</b> <span class="t-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.2 3 7.9 7 9.5 4-1.6 7-5.3 7-9.5V6Z"/><path class="tick" d="m8.8 12.2 2.3 2.3 4.3-4.6"/></svg></span> <span class="dim">sized for</span> <b>your business.</b></p>
+              </li>
 
-          <article class="service-card reveal delay-1">
-            <div class="icon-badge"><img src="assets/about-insight-abstract.svg" alt="" /></div>
-            <h3>Data & Analytics</h3>
-            <p>Turn business information into clearer reporting, dashboards, and actionable insights.</p>
-            <ul>
-              <li>Dashboards & reporting</li>
-              <li>Power BI solutions</li>
-              <li>Data cleaning & preparation</li>
-              <li>KPI tracking</li>
-              <li>Data visualization</li>
-            </ul>
-          </article>
+              <li class="tile onboard" data-cycle="10000" data-final="9000">
+                <span class="sr-only">Example screen: a new hire’s account, laptop and access being set up, reaching 100% and ready for day one.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="ob-head swap" data-at="7000"><span><i class="dot busy"></i>Setting up new hire</span><span><i class="dot ok"></i>Ready for day one</span></span>
+                  <span class="ob-big"><b data-count data-to="100" data-suffix="%" data-start="0" data-dur="6800">0%</b><small>/100</small></span>
+                  <span class="ob-bar"><b data-bar data-ease data-start="0" data-dur="6800"></b></span>
+                  <span class="ob-rows">
+                    <span class="ob-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg><span><code>[Account]</code><small>Microsoft 365 created</small></span><em data-count data-to="100" data-decimals="1" data-suffix="%" data-start="0" data-dur="2400">0.0%</em></span>
+                    <span class="ob-row"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2.5 19h19"/></svg><span><code>[Device]</code><small>Laptop enrolled</small></span><em data-count data-to="100" data-decimals="1" data-suffix="%" data-start="900" data-dur="4300">0.0%</em></span>
+                    <span class="ob-row"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="1.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span><code>[Access]</code><small>Shared drives granted</small></span><em data-count data-to="100" data-decimals="1" data-suffix="%" data-start="2200" data-dur="4600">0.0%</em></span>
+                  </span>
+                </div>
+              </li>
 
-          <article class="service-card reveal delay-2">
-            <div class="icon-badge"><img src="assets/about-growth-abstract.svg" alt="" /></div>
-            <h3>Digital Marketing</h3>
-            <p>Support your brand through consistent content, campaigns, and digital growth activities.</p>
-            <ul>
-              <li>Social media management</li>
-              <li>Content planning</li>
-              <li>Paid campaign support</li>
-              <li>Community management</li>
-              <li>Performance reporting</li>
-            </ul>
-          </article>
+              <li class="tile media render">
+                <img src="assets/gallery/server-stack.webp" alt="3D render of a stack of three servers with teal status lights" width="728" height="546" loading="eager" decoding="async" />
+                <span class="media-cap">Cloud and Infrastructure</span>
+              </li>
 
-          <article class="service-card reveal delay-3">
-            <div class="icon-badge"><img src="assets/about-ops-abstract.svg" alt="" /></div>
-            <h3>Business Operations</h3>
-            <p>Dependable support for recurring work, coordination, research, and online operations.</p>
-            <ul>
-              <li>Virtual assistance</li>
-              <li>Administrative support</li>
-              <li>Research & documentation</li>
-              <li>E-commerce support</li>
-              <li>Project coordination</li>
-            </ul>
-          </article>
+              <li class="tile kpi">
+                <span class="sr-only">Example report: June revenue of $48.2k, up 15%.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="t-label">Revenue, June</span>
+                  <span class="kpi-row"><strong class="t-big">$48.2k</strong><span class="chip up">+15%</span></span>
+                  <span class="kpi-bars"><i style="--h:55%"></i><i style="--h:62%"></i><i style="--h:70%"></i><i style="--h:66%"></i><i style="--h:82%"></i><i style="--h:96%"></i></span>
+                  <span class="t-foot">Power BI, refreshed 07:00</span>
+                </div>
+              </li>
 
-          <article class="service-card reveal delay-4">
-            <div class="icon-badge"><img src="assets/about-automation-abstract.svg" alt="" /></div>
-            <h3>Automation & Workflow</h3>
-            <p>Reduce repetitive work and improve consistency through practical process automation.</p>
-            <ul>
-              <li>Workflow automation</li>
-              <li>Reporting automation</li>
-              <li>Process improvement</li>
-              <li>Scripting & integrations</li>
-              <li>Operational automation</li>
+              <li class="tile dark wire" data-cycle="12000" data-final="12000">
+                <span class="sr-only">Animated network map: an office connected to the cloud, with 24 devices monitored.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="wire-label">+ Network Map</span>
+                  <canvas class="wire-canvas" data-wire></canvas>
+                  <span class="wire-pill">24 devices</span>
+                </div>
+              </li>
+
+              <li class="tile silver report" data-cycle="10000" data-final="6000">
+                <span class="sr-only">Example monthly IT report for July: 99.9% uptime, 41 support tickets solved, every backup checked, and the share of tickets solved within an hour rising from 72% to 94% over six months.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="rp-head"><span class="rp-doc"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></span><span><b>Monthly IT Report</b><small>July, sent 1 August</small></span><span class="chip">PDF</span></span>
+                  <span class="rp-stats">
+                    <span><b data-count data-to="99.9" data-decimals="1" data-suffix="%" data-start="200" data-dur="1800">0.0%</b><small>Uptime</small></span>
+                    <span><b data-count data-to="41" data-start="400" data-dur="1800">0</b><small>Tickets</small></span>
+                    <span><b data-count data-to="100" data-suffix="%" data-start="600" data-dur="1800">0%</b><small>Backups</small></span>
+                  </span>
+                  <span class="rp-chart" data-bar data-ease data-start="1100" data-dur="2600">
+                    <span class="rp-cap"><span>Solved within 1 hour</span><b data-count data-from="72" data-to="94" data-suffix="%" data-start="1100" data-dur="2600">72%</b></span>
+                    <span class="rp-plot"><svg viewBox="0 0 240 60" preserveAspectRatio="none"><defs><linearGradient id="rpFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".26"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path class="rp-area" d="M0 42 L48 34 L96 37 L144 25 L192 17 L240 8 V60 H0Z" fill="url(#rpFill)"/><path class="rp-line" d="M0 42 L48 34 L96 37 L144 25 L192 17 L240 8"/></svg><i class="rp-dot" data-at="3700"></i></span>
+                  </span>
+                  <span class="rp-months"><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></span>
+                </div>
+              </li>
+
+              <li class="tile dark mail" data-cycle="11000" data-final="6500">
+                <span class="sr-only">Example email protection screen: 1,284 emails scanned today. A fake invoice attachment is blocked, a fake password-reset email is quarantined and a genuine sales report is delivered.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="t-label">Email protection</span>
+                  <span class="mail-top"><span><strong class="t-title"><b data-count data-to="1284" data-start="200" data-dur="2600">0</b> scanned today</strong><span class="t-sub">37 threats stopped this week</span></span><span class="mail-shield"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.2 3 7.9 7 9.5 4-1.6 7-5.3 7-9.5V6Z"/><path d="m8.8 12.2 2.3 2.3 4.3-4.6"/></svg></span></span>
+                  <span class="mail-list">
+                    <span class="mail-row" data-at="900"><i class="mi bad">!</i><span><b>Invoice_overdue.zip</b><small>billing@pay-notice.biz</small></span><em class="tag block">Blocked</em></span>
+                    <span class="mail-row" data-at="2300"><i class="mi warn">?</i><span><b>Reset your password now</b><small>support@reset-portal.help</small></span><em class="tag hold">Quarantined</em></span>
+                    <span class="mail-row" data-at="3700"><i class="mi ok">✓</i><span><b>Weekly sales report</b><small>ana@yourbusiness.com</small></span><em class="tag ok">Delivered</em></span>
+                  </span>
+                </div>
+              </li>
+
+              <li class="tile media wide video render">
+                <img src="assets/gallery/vantelyra-v.webp" alt="3D render of the Vantelyra V mark turning slowly in a dark studio" width="462" height="260" loading="eager" decoding="async" />
+                <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" poster="assets/gallery/vantelyra-v.webp" data-video><source data-src="assets/gallery/vantelyra-v.webm" type="video/webm" /><source data-src="assets/gallery/vantelyra-v.mp4" type="video/mp4" /></video>
+                <span class="wire-label">+ Rendered in-house</span>
+              </li>
+
+              <li class="tile mfa">
+                <span class="sr-only">Example screen: a two-step sign-in request for a new device, waiting for approval.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="t-label">Microsoft 365</span>
+                  <strong class="t-title">Approve sign-in?</strong>
+                  <span class="t-sub">New device, Sales team</span>
+                  <span class="mfa-number">42</span>
+                  <span class="mfa-actions"><span>Deny</span><span class="approve">Approve</span></span>
+                </div>
+              </li>
+
+              <li class="tile dark flow" data-cycle="9000" data-final="6000">
+                <span class="sr-only">Example automation: a new web order updates the CRM and sends the invoice on its own.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="t-label">Automation</span>
+                  <strong class="t-title">New order to invoice</strong>
+                  <span class="flow-steps">
+                    <span class="flow-step" data-at="400"><i>1</i><span><b>Web form</b><small>Order #2041 received</small></span></span>
+                    <span class="flow-step" data-at="2000"><i>2</i><span><b>CRM</b><small>Customer record updated</small></span></span>
+                    <span class="flow-step" data-at="3600"><i>3</i><span><b>Accounting</b><small>Invoice sent</small></span></span>
+                  </span>
+                  <span class="t-foot" data-at="5000">Runs on its own, 214 times a month</span>
+                </div>
+              </li>
+
+              <li class="tile chat" data-cycle="11000" data-final="7000">
+                <span class="sr-only">Example support ticket: a printer problem reported, fixed remotely and resolved in 18 minutes.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="chat-head"><code>Ticket #1042</code><span class="chip swap" data-at="5600"><span>Open</span><span>Resolved</span></span></span>
+                  <span class="bubble them" data-at="300">The printer in Sales is offline again.</span>
+                  <span class="bubble us" data-at="1900">On it. Remote session started.</span>
+                  <span class="bubble us" data-at="3900">Driver updated, test page printed.</span>
+                  <span class="chat-foot" data-at="5600">Resolved in 18 min</span>
+                </div>
+              </li>
+
+              <li class="tile media render">
+                <img src="assets/gallery/security-shield.webp" alt="3D render of a white and teal security shield with a check mark" width="728" height="546" loading="eager" decoding="async" />
+                <span class="media-cap">Security Essentials</span>
+              </li>
+
+              <li class="tile devices" data-cycle="10000" data-final="6000">
+                <span class="sr-only">Example device management screen: 24 company laptops and phones. One office PC finishes installing updates, and all 24 are then encrypted and up to date.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="dv-top"><span><span class="t-label">Device management</span><strong class="t-title">24 devices protected</strong></span><span class="mini-ring dv-ring" data-bar data-ease data-start="3600" data-dur="1200"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><circle class="v" cx="18" cy="18" r="15"/></svg><b data-count data-from="96" data-to="100" data-suffix="%" data-start="3600" data-dur="1200">96%</b></span></span>
+                  <span class="dv-chips"><span class="chip">Encryption on</span><span class="chip">Antivirus on</span><span class="chip">Auto updates</span></span>
+                  <span class="dv-list">
+                    <span class="dv-row"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2.5 19h19"/></svg><span><b>Ana’s laptop</b><small>Encrypted, up to date</small></span><i class="dv-state is-ok">✓</i></span>
+                    <span class="dv-row"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></svg><span><b>Sales PC 02</b><small class="swap" data-at="3600"><span>Installing updates…</span><span>Encrypted, up to date</span></small></span><i class="dv-state swap" data-at="3600"><span class="spin"></span><span>✓</span></i></span>
+                    <span class="dv-row"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg><span><b>James’s phone</b><small>Passcode on, managed</small></span><i class="dv-state is-ok">✓</i></span>
+                  </span>
+                </div>
+              </li>
+
+              <li class="tile dash" data-cycle="10000" data-final="4000">
+                <span class="sr-only">Example owner dashboard: revenue of $48,200 this month and 3 open support tickets.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="dash-top"><i class="dash-logo"></i><span><b>Owner Dashboard</b><small>Refreshed 07:00</small></span><i class="live-dot"></i></span>
+                  <span class="dash-body">
+                    <span class="dash-side"><i class="on"></i><i></i><i></i><i></i></span>
+                    <span class="dash-cards">
+                      <span class="dash-card"><small>Revenue, this month</small><span class="dash-row"><b data-count data-to="48200" data-prefix="$" data-start="200" data-dur="2600">$0</b><span class="dash-bars"><i style="--h:40%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:70%"></i><i style="--h:62%"></i><i style="--h:90%"></i></span></span></span>
+                      <span class="dash-card"><small>Open tickets</small><b data-count data-from="12" data-to="3" data-start="600" data-dur="3000">12</b></span>
+                    </span>
+                  </span>
+                </div>
+              </li>
+
+              <li class="tile site" data-cycle="10000" data-final="7000">
+                <span class="sr-only">Example website build: a page assembling in a browser window, with a performance score of 98.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="browser">
+                    <span class="b-bar"><i></i><i></i><i></i><span>yourbusiness.com</span></span>
+                    <span class="b-body">
+                      <span class="b-nav" data-at="200"></span>
+                      <span class="b-hero" data-at="900"><i></i><i></i><i class="b-btn"></i></span>
+                      <span class="b-cards" data-at="1800"><i></i><i></i><i></i></span>
+                    </span>
+                  </span>
+                  <span class="site-score" data-at="2800"><span class="mini-ring" data-bar data-ease data-start="2800" data-dur="1800"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><circle class="v" cx="18" cy="18" r="15"/></svg><b data-count data-to="98" data-start="2800" data-dur="1800">0</b></span><span><b>Performance</b><small>Fast on phones</small></span></span>
+                </div>
+              </li>
+
+              <li class="tile teal statement oneteam">
+                <span class="ot" aria-hidden="true">
+                  <span class="ot-track"><i></i></span>
+                  <span class="ot-node"><span><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2.5 19h19"/></svg></span><small>IT</small></span>
+                  <span class="ot-node"><span><svg viewBox="0 0 24 24"><path d="M5 20v-8M10 20V5M15 20v-6M20 20V9"/></svg></span><small>Data</small></span>
+                  <span class="ot-node"><span><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9h18M6.5 6.8h.01M9 6.8h.01"/></svg></span><small>Web</small></span>
+                </span>
+                <span class="ot-pill" aria-hidden="true"><i></i>One contact for all three</span>
+                <p>One team for IT, data and the web.</p>
+              </li>
+
+              <li class="tile term wide" data-cycle="11000" data-final="6500">
+                <span class="sr-only">Example overnight check: backups verified, all 24 devices patched and a restore test passed.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="term-bar"><i></i><i></i><i></i><span>nightly-check</span></span>
+                  <code class="term-body">
+                    <span data-at="200"><em>$</em> run nightly-check --all</span>
+                    <span data-at="1500"><em class="ok">✓</em> Backups verified <s>1,284 files</s></span>
+                    <span data-at="2800"><em class="ok">✓</em> Devices patched <s>24/24</s></span>
+                    <span data-at="4100"><em class="ok">✓</em> Restore test <s>passed</s></span>
+                    <span data-at="5400" class="term-done">All clear, 02:14<i class="cursor"></i></span>
+                  </code>
+                </div>
+              </li>
+
+              <li class="tile uptime">
+                <span class="sr-only">Example status page: email, website, office Wi-Fi and backups all running, with 30 days of history. The website had one short slowdown; uptime ranges from 99.96% to 100%.</span>
+                <div class="tv" aria-hidden="true">
+                  <span class="st-head"><span class="t-label">Service status</span><span class="chip st-chip"><i class="dot ok"></i>All systems running</span></span>
+                  <span class="st-sum"><strong class="t-big">99.98%</strong><span class="t-sub">uptime across all services, last 30 days</span></span>
+                  <span class="st-rows">
+                    <span class="st-row"><b>Email</b><span class="st-bars"></span><em>100%</em></span>
+                    <span class="st-row"><b>Website</b><span class="st-bars inc" style="--at: 17"></span><em>99.96%</em></span>
+                    <span class="st-row"><b>Office Wi-Fi</b><span class="st-bars"></span><em>99.98%</em></span>
+                    <span class="st-row"><b>Backups</b><span class="st-bars"></span><em>100%</em></span>
+                  </span>
+                  <span class="st-foot"><span>30 days ago</span><span>Today</span></span>
+                </div>
+              </li>
+
             </ul>
-          </article>
+          </div>
+          <div class="wrap reel-controls">
+            <button type="button" class="reel-toggle" data-reel-toggle aria-label="Pause the moving gallery">
+              <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+              <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5Z"/></svg>
+            </button>
+            <p class="reel-note">Examples of the systems we set up and look after, made in-house. Screens use demo data.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="why-us">
-      <div class="container split">
-        <div class="split-copy reveal">
-          <div class="eyebrow">Why Vantelyra</div>
-          <h2>Specialized capabilities. Unified execution.</h2>
-          <p>
-            Modern business needs often cross multiple disciplines. Vantelyra brings together technical,
-            analytical, marketing, automation, and operational capabilities within one coordinated team.
-          </p>
-          <p>
-            Each engagement is structured around clear ownership, disciplined communication, and measurable outcomes —
-            whether the requirement calls for a focused specialist or coordinated support across several functions.
-          </p>
-          <a class="btn btn-primary why-cta" href="#contact">Discuss Your Project</a>
+    <!-- TEAM -->
+    <section class="section" id="team" aria-labelledby="team-heading" data-rain>
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="team-heading">The People Doing the Work</h2>
+          <p>Specialists with corporate IT experience, now working for small businesses. You’ll always know who is handling your request.</p>
         </div>
-
-        <div class="value-stack reveal delay-1">
-          <div class="value-card">
-            <strong>01</strong>
-            <div>
-              <h3>Specialized Expertise</h3>
-              <p>Align each requirement with the expertise best suited to deliver it effectively.</p>
-            </div>
-          </div>
-          <div class="value-card">
-            <strong>02</strong>
-            <div>
-              <h3>Structured Coordination</h3>
-              <p>Defined scope, ownership, priorities, and communication throughout the engagement.</p>
-            </div>
-          </div>
-          <div class="value-card">
-            <strong>03</strong>
-            <div>
-              <h3>Scalable Support</h3>
-              <p>Expand capabilities and support as requirements evolve without disrupting delivery.</p>
-            </div>
-          </div>
-        </div>
+        <ul class="team-grid" data-team>
+          <!-- Filled from SITE_CONFIG.team in script.js -->
+        </ul>
+        <noscript><p>Meet our team on <a href="https://www.linkedin.com/company/vantelyra">LinkedIn</a>.</p></noscript>
       </div>
     </section>
 
-    <section class="section section-dark" id="work">
-      <div class="container">
-        <div class="support-heading reveal">
-          <div>
-            <div class="eyebrow">Our delivery model</div>
-            <h2>Connected capabilities.<br />Clear accountability.</h2>
+    <!-- SERVICE STANDARDS (top) + IT HEALTH SELF-CHECK (full-width band below), one page -->
+    <section class="section assure-page" id="it-check" aria-labelledby="standards-heading" data-rain>
+      <div class="assure-top" id="standards">
+        <div class="wrap">
+          <div class="section-head standards-head">
+            <h2 id="standards-heading">Our Service Standards</h2>
+            <p>Written into every quote, so you can hold us to them.</p>
           </div>
-          <p>
-            We bring together the right capabilities around a defined business outcome, with
-            structured ownership and communication from scope through delivery.
-          </p>
-        </div>
-
-        <div class="support-principles">
-          <article class="support-principle reveal">
-            <span class="support-no">01</span>
-            <h3>Integrated Expertise</h3>
-            <p>Technology, data, marketing, automation, and operations working within one delivery structure.</p>
-          </article>
-          <article class="support-principle reveal delay-1">
-            <span class="support-no">02</span>
-            <h3>Adaptive Delivery</h3>
-            <p>Engagements shaped around consultations, projects, implementation, or ongoing business support.</p>
-          </article>
-          <article class="support-principle reveal delay-2">
-            <span class="support-no">03</span>
-            <h3>Outcome Ownership</h3>
-            <p>Clear scope, defined responsibilities, and delivery aligned to the result the engagement is meant to achieve.</p>
-          </article>
-          <article class="support-principle reveal delay-3">
-            <span class="support-no">04</span>
-            <h3>Transparent Coordination</h3>
-            <p>Consistent updates, practical documentation, and professional communication throughout the work.</p>
-          </article>
+          <ul class="standards-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20Z" /><path d="M14 3.5V8h4M9.5 13h5M9.5 16.5h3.5" /></svg><div><h3>Fixed Quote, Agreed First</h3><p>You approve the scope and price before work starts. No hourly surprises.</p></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg><div><h3>Replies Within One Business Day</h3><p>Every inquiry and support request gets an answer from a real person.</p></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="12" r="3.5" /><path d="M12 12h8.5M17 12v3M20 12v2.5" /></svg><div><h3>You Own Everything</h3><p>Accounts, admin access, files and documentation stay in your company’s name.</p></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2" /><path d="M8.5 10.5V8a3.5 3.5 0 0 1 6.8-1.2" /></svg><div><h3>No Lock-In</h3><p>Monthly support runs month to month. You stay because it works.</p></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5 5L4 17v3h3l5.5-5.5a4 4 0 0 0 5-5L15 12l-3-3Z" /></svg><div><h3>30 Days of Fixes</h3><p>If something we delivered doesn’t work as agreed, we fix it at no cost.</p></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.3 7.5 9.5 4.4-1.2 7.5-4.9 7.5-9.5V6L12 3Z" /><path d="m8.8 12.2 2.2 2.2 4.3-4.6" /></svg><div><h3>Careful With Your Access</h3><p>Two-step sign-in, a password manager, access removed when work ends, and an NDA on request.</p></div></li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">How we work</div>
-          <h2>Simple process. Clear next steps.</h2>
-        </div>
+      <div class="check-band">
+        <div class="wrap">
+            <div class="check-panel">
+              <div class="check-intro">
+                <h2 id="check-heading">How healthy is your company’s IT?</h2>
+                <p>Eight yes-or-no questions about the basics most small businesses miss. It takes about two minutes.</p>
+                <p class="check-privacy">Your answers stay in your browser unless you choose to send them to us.</p>
+              </div>
 
-        <div class="process-grid">
-          <div class="process-step reveal">
-            <span>01</span>
-            <h3>Discover</h3>
-            <p>Understand your current environment, goals, constraints, and priorities.</p>
-          </div>
-          <div class="process-step reveal delay-1">
-            <span>02</span>
-            <h3>Plan</h3>
-            <p>Define the scope, deliverables, owners, timeline, and success criteria.</p>
-          </div>
-          <div class="process-step reveal delay-2">
-            <span>03</span>
-            <h3>Execute</h3>
-            <p>Deliver the work with regular communication and practical documentation.</p>
-          </div>
-          <div class="process-step reveal delay-3">
-            <span>04</span>
-            <h3>Improve</h3>
-            <p>Review outcomes, identify opportunities, and support the next phase if needed.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="about">
-      <div class="container about-grid">
-        
-
-<div class="about-visual reveal" aria-hidden="true">
-          <div class="about-clean-sphere">
-            <div class="sphere-glow sphere-glow-a"></div>
-            <div class="sphere-glow sphere-glow-b"></div>
-
-            <div class="sphere-ring sphere-ring-1"></div>
-            <div class="sphere-ring sphere-ring-2"></div>
-            <div class="sphere-ring sphere-ring-3"></div>
-            <div class="sphere-ring sphere-ring-4"></div>
-            <div class="sphere-ring sphere-ring-5"></div>
-
-            <div class="sphere-beam sphere-beam-1"></div>
-            <div class="sphere-beam sphere-beam-2"></div>
-            <div class="sphere-beam sphere-beam-3"></div>
-            <div class="sphere-beam sphere-beam-4"></div>
-            <div class="sphere-beam sphere-beam-5"></div>
-            <div class="sphere-beam sphere-beam-6"></div>
-
-            <div class="sphere-orbit sphere-orbit-a">
-              <span class="sphere-particle sp-a"></span>
-              <span class="sphere-particle sp-b"></span>
-              <span class="sphere-particle sp-c"></span>
-            </div>
-
-            <div class="sphere-orbit sphere-orbit-b">
-              <span class="sphere-particle sp-d"></span>
-              <span class="sphere-particle sp-e"></span>
-            </div>
-
-            <div class="sphere-orbit sphere-orbit-c">
-              <span class="sphere-particle sp-f"></span>
-            </div>
-
-            <div class="sphere-core">
-              <div class="sphere-core-middle">
-                <div class="sphere-core-center"></div>
+              <div class="check-app" data-check>
+                <!-- Without JavaScript this is a plain checklist. -->
+                <ol class="check-list" data-check-list>
+                  <li data-key="backups" data-service="security" data-fix="Automatic, tested backups for email, files and key systems.">
+                    <strong>Is your business data backed up automatically, and have you tested restoring it?</strong>
+                    <span>Backups that have never been restored often fail when you need them most.</span>
+                  </li>
+                  <li data-key="mfa" data-service="security" data-fix="Two-step sign-in on every account, with a simple rollout for staff.">
+                    <strong>Does everyone use two-step sign-in (MFA) for email and key apps?</strong>
+                    <span>Most account takeovers start with a stolen password. Two-step sign-in stops the large majority of them.</span>
+                  </li>
+                  <li data-key="passwords" data-service="security" data-fix="A company password manager with shared vaults for each team.">
+                    <strong>Do people use a password manager instead of shared or reused passwords?</strong>
+                    <span>A shared spreadsheet of passwords is one leak away from a breach.</span>
+                  </li>
+                  <li data-key="offboarding" data-service="managed" data-fix="An onboarding and offboarding checklist that we run for you.">
+                    <strong>When someone leaves, is their access removed the same day?</strong>
+                    <span>Former staff with working accounts are a common and silent risk.</span>
+                  </li>
+                  <li data-key="updates" data-service="managed" data-fix="Managed updates and monitoring for every computer and phone.">
+                    <strong>Are computers and phones updated automatically?</strong>
+                    <span>Out-of-date devices are the easiest way in for attackers.</span>
+                  </li>
+                  <li data-key="support" data-service="managed" data-fix="A support plan with named people and agreed response times.">
+                    <strong>When IT breaks, do you know who to call and how fast they’ll respond?</strong>
+                    <span>Without a clear owner, small problems quietly eat hours of your team’s time.</span>
+                  </li>
+                  <li data-key="reporting" data-service="data" data-fix="A live dashboard connected to your real business data.">
+                    <strong>Can you see your key numbers without building a spreadsheet by hand?</strong>
+                    <span>Manual reports are slow, easy to get wrong and usually out of date.</span>
+                  </li>
+                  <li data-key="automation" data-service="automation" data-fix="Automated workflows between the tools you already use.">
+                    <strong>Is repetitive work, like copying data between apps, automated?</strong>
+                    <span>Ten minutes of copy and paste a day adds up to a full week every year.</span>
+                  </li>
+                </ol>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="about-copy reveal delay-1">
-          <div class="eyebrow">About Vantelyra</div>
-          <h2>Different capabilities, connected around your business.</h2>
-          <p>
-            Vantelyra Digital Solutions is a multidisciplinary digital services agency based in the Philippines.
-            We support businesses across technology, data, automation, digital marketing, and operational work.
-          </p>
-          <p>
-            Our approach is built around practical delivery: understand the requirement, match the right capability,
-            keep ownership clear, and make the work easier for the client to manage.
-          </p>
         </div>
       </div>
     </section>
 
-    <section class="section cta-section" id="contact">
-      <div class="container cta-grid">
-        <div class="reveal">
-          <div class="eyebrow">Let’s work together</div>
-          <h2>Let’s discuss what you’re building next.</h2>
-          <p>
-            Share your project, challenge, or support requirement. We’ll help identify the most practical way forward.
-          </p>
-          <div class="contact-links">
-            <a id="emailLink" class="btn btn-secondary email-cta" href="mailto:hello@vantelyra.com?subject=Vantelyra%20Inquiry">Email Vantelyra</a>
-          </div>
+    <!-- CONTACT -->
+    <section class="section section-wash" id="contact" aria-labelledby="contact-heading">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <h2 id="contact-heading">Tell us what’s slowing your team down.</h2>
+          <p>Send a few lines about your business and the problem. We’ll reply within one business day to arrange your free consultation.</p>
+          <ul class="contact-methods" data-contact-methods>
+            <li><a id="emailLink" class="contact-method" href="mailto:hello@vantelyra.com?subject=Vantelyra%20inquiry">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m4 7 8 6 8-6" /></svg>
+              <span>hello@vantelyra.com</span></a></li>
+            <li data-whatsapp hidden><a class="contact-method" href="#" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 5.6 16A8 8 0 1 1 8 18.4Z" /><path d="M9.2 8.6c.2 2.6 3.2 5.7 6 6l1.3-1.4-2-1-1 .8c-1-.4-2.2-1.6-2.6-2.6l.8-1-1-2Z" /></svg>
+              <span>Message Us on WhatsApp</span></a></li>
+            <li data-booking hidden><a class="contact-method" href="#" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
+              <span>Book a Free Consultation</span></a></li>
+          </ul>
+          <p class="contact-note">Based in the Philippines, working with small businesses worldwide.</p>
         </div>
 
-        <form class="contact-form reveal delay-1" id="contactForm">
-          <div class="form-row">
-            <label>
-              Name
-              <input type="text" name="name" autocomplete="name" required />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="companyWebsite">Leave this field empty</label>
+            <input id="companyWebsite" name="companyWebsite" type="text" tabindex="-1" autocomplete="off" />
           </div>
 
-          <label>
-            What do you need help with?
-            <select name="service">
-              <option>Cloud & Infrastructure</option>
-              <option>Data & Analytics</option>
-              <option>Digital Marketing</option>
-              <option>Business Operations / VA</option>
-              <option>Automation & Workflow</option>
-              <option>Multiple services</option>
-            </select>
-          </label>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" type="text" name="name" autocomplete="name" maxlength="100" required />
+            </div>
+            <div class="field">
+              <label for="f-email">Work email</label>
+              <input id="f-email" type="email" name="email" autocomplete="email" maxlength="160" required />
+            </div>
+          </div>
 
-          <label>
-            Project details
-            <textarea name="message" rows="5" placeholder="Tell us about your project, challenge, or goal..." required></textarea>
-          </label>
+          <div class="field service-field">
+            <label id="serviceLabel" for="serviceSelect">What do you need help with?</label>
+            <div class="custom-select" data-custom-select>
+              <!-- Option values are what the contact Worker receives. Each must match
+                   one of the Worker's ALLOWED_SERVICES exactly, or the Worker rejects
+                   the inquiry. data-key identifies the visible choice, and the visible
+                   name is added to the top of the message. -->
+              <select id="serviceSelect" name="service" class="custom-select-native">
+                <option data-key="consult" value="Digital Consulting / Inquiry">Free Consultation</option>
+                <option data-key="health" value="Digital Consulting / Inquiry">IT Health Check</option>
+                <option data-key="workspace" value="Cloud &amp; Infrastructure">Workspace Setup and Migration</option>
+                <option data-key="managed" value="Business Operations">Managed IT Support</option>
+                <option data-key="security" value="Cloud &amp; Infrastructure">Security Essentials</option>
+                <option data-key="data" value="Data &amp; Analytics">Data and Dashboards</option>
+                <option data-key="automation" value="Automation &amp; Workflow">Automation and Integration</option>
+                <option data-key="website" value="Digital Platforms">Business Website</option>
+                <option data-key="unsure" value="Digital Consulting / Inquiry">Not Sure Yet</option>
+              </select>
+              <button id="serviceTrigger" class="custom-select-trigger" type="button" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="serviceOptions" aria-labelledby="serviceLabel serviceSelectedValue" hidden>
+                <span id="serviceSelectedValue" class="custom-select-value">Free Consultation</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5.5 7.5 4.5 4.4 4.5-4.4" /></svg>
+              </button>
+              <div class="custom-select-menu" id="serviceOptions" role="listbox" aria-labelledby="serviceLabel" aria-hidden="true"></div>
+            </div>
+          </div>
 
-          <button class="btn btn-primary" type="submit">Send Inquiry</button>
+          <div class="field">
+            <label for="f-message">Tell us more</label>
+            <textarea id="f-message" name="message" rows="5" maxlength="3900" placeholder="For example: we’re 12 people on personal Gmail accounts and want proper company email and shared files." required></textarea>
+          </div>
 
+          <p class="form-error" id="formError" role="alert" hidden></p>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" id="submitInquiry" type="submit">Send Inquiry</button>
+            <p class="form-privacy">We use your details only to reply to you. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+          </div>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <a class="footer-brand" href="#top">
-        <img src="assets/logo-horizontal.svg" alt="Vantelyra Digital Solutions" />
-      </a>
-      <div>
-        <p>Cloud, Data & Digital Operations</p>
-        <p class="copyright">© <span id="year"></span> Vantelyra Digital Solutions. All rights reserved.</p>
+  <div class="inquiry-success" id="inquirySuccess" role="status" aria-live="polite" aria-atomic="true" aria-hidden="true" data-state="idle">
+    <div class="inquiry-success-card">
+      <div class="inquiry-ribbons" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
       </div>
+      <div class="inquiry-success-mark" aria-hidden="true">
+        <span class="inquiry-loading-spinner"></span>
+        <svg class="inquiry-success-icon" viewBox="0 0 24 24"><path d="m6.5 12.4 3.4 3.4 7.6-8" /></svg>
+        <svg class="inquiry-error-icon" viewBox="0 0 24 24"><path d="M12 7.2v6.2" /><path d="M12 17.2h.01" /></svg>
+      </div>
+      <p class="inquiry-success-kicker" id="inquiryPopupKicker">Secure inquiry</p>
+      <p class="inquiry-success-title" id="inquiryPopupTitle">Preparing…</p>
+      <p class="inquiry-success-copy" id="inquiryPopupCopy">Please wait a moment.</p>
+      <div class="turnstile-wrap inquiry-popup-turnstile" id="turnstileWidget" aria-label="Security verification"></div>
+      <button class="inquiry-popup-close" id="inquiryPopupClose" type="button" hidden>Close</button>
+      <span class="inquiry-success-timer" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-wrap">
+      <a class="footer-brand" href="#top" aria-label="Vantelyra Digital Solutions, back to top">
+        <img class="brand-light" src="assets/logo-horizontal.svg" alt="" width="190" height="38" />
+        <img class="brand-dark" src="assets/logo-horizontal-dark.svg" alt="" width="190" height="38" />
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-of-service.html">Terms</a>
+        <a href="cookie-policy.html">Cookies</a>
+      </nav>
+      <div class="footer-socials">
+        <a class="social is-disabled" data-social="facebook" aria-label="Vantelyra on Facebook" aria-disabled="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.4 8.2V6.6c0-.8.5-1 1-1h2V2.2l-2.8-.1c-2.8 0-4.5 1.7-4.5 4.7v1.4H7.6V12h2.5v9.9h4.3V12h2.9l.5-3.8h-3.4Z"/></svg>
+        </a>
+        <a class="social is-disabled" data-social="linkedin" aria-label="Vantelyra on LinkedIn" aria-disabled="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.1 8.6H1.5V22h3.6V8.6ZM3.3 2A2.2 2.2 0 1 0 3.3 6.4 2.2 2.2 0 0 0 3.3 2ZM22.5 14.3c0-4-2.1-5.9-5-5.9-2.3 0-3.4 1.3-4 2.1V8.6H9.9V22h3.6v-6.6c0-1.8.3-3.5 2.5-3.5 2.1 0 2.2 2 2.2 3.6V22h3.6l.7-7.7Z"/></svg>
+        </a>
+        <a class="social is-disabled" data-social="instagram" aria-label="Vantelyra on Instagram" aria-disabled="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.8" r="1.1"/></svg>
+        </a>
+      </div>
+      <p class="copyright">© <span id="year">2026</span> Vantelyra Digital Solutions</p>
     </div>
   </footer>
 
-  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" /></svg>
   </button>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=93" defer></script>
+  <script src="theme.js?v=85" defer></script>
+  <script src="rain.js?v=93" defer></script>
+  <script src="section-fx.js?v=93" defer></script>
 </body>
 </html>

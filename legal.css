@@ -1,0 +1,240 @@
+:root {
+  --ink: #0d2742;
+  --muted: #657b90;
+  --teal: #57999b;
+  --teal-dark: #397f82;
+  --line: rgba(31,76,104,.14);
+  --soft: #f4f8f8;
+  --white: #ffffff;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--soft);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 82% 10%, rgba(87,153,155,.12), transparent 27rem),
+    linear-gradient(180deg, #f8fbfb 0, #fff 28rem);
+  font-family: Aptos, "Segoe UI Variable Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+a { color: inherit; }
+
+.legal-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid rgba(31,76,104,.10);
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(16px);
+}
+
+.legal-nav {
+  width: min(calc(100% - 40px), var(--max));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.legal-brand img {
+  display: block;
+  width: 205px;
+  height: auto;
+}
+
+.back-home {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  align-items: center;
+  color: var(--teal-dark);
+  border: 1px solid rgba(31,76,104,.14);
+  border-radius: 14px;
+  background: linear-gradient(145deg,#fff,#f2f8f8);
+  box-shadow: 0 8px 20px rgba(13,39,66,.07);
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.back-home svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.back-home:hover,
+.back-home:focus-visible {
+  transform: translateX(-2px);
+  border-color: rgba(87,153,155,.48);
+  background: rgba(87,153,155,.08);
+  box-shadow: 0 10px 24px rgba(13,39,66,.10);
+}
+
+.legal-main h1,
+.legal-section h2 {
+  font-family: "Aptos Display", "Segoe UI Variable Display", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}
+
+.legal-main p,
+.legal-main li,
+.legal-links,
+.back-home {
+  letter-spacing: .006em;
+}
+
+.legal-main {
+  width: min(calc(100% - 40px), 920px);
+  margin: 0 auto;
+  padding: 88px 0 96px;
+}
+
+.legal-eyebrow {
+  margin-bottom: 18px;
+  color: var(--teal-dark);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.legal-main h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(3.1rem, 7vw, 6.2rem);
+  line-height: .94;
+  letter-spacing: -.055em;
+  font-weight: 500;
+}
+
+.legal-intro {
+  max-width: 700px;
+  margin: 28px 0 14px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.legal-date {
+  margin: 0;
+  color: #8091a1;
+  font-size: .82rem;
+}
+
+.legal-card {
+  margin-top: 48px;
+  padding: clamp(26px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 22px 55px rgba(13,39,66,.06);
+}
+
+.legal-section + .legal-section {
+  margin-top: 42px;
+  padding-top: 38px;
+  border-top: 1px solid var(--line);
+}
+
+.legal-section h2 {
+  margin: 0 0 13px;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  line-height: 1.18;
+  letter-spacing: -.03em;
+  font-weight: 550;
+}
+
+.legal-section h3 {
+  margin: 24px 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.legal-section p,
+.legal-section li {
+  color: var(--muted);
+}
+
+.legal-section p { margin: 0 0 14px; }
+.legal-section ul { margin: 10px 0 0; padding-left: 1.2rem; }
+.legal-section li + li { margin-top: 7px; }
+
+.legal-callout {
+  margin: 30px 0 0;
+  padding: 18px 20px;
+  border-left: 3px solid var(--teal);
+  border-radius: 0 14px 14px 0;
+  background: rgba(87,153,155,.08);
+  color: #4f687f;
+  font-size: .9rem;
+}
+
+.legal-section a,
+.legal-callout a {
+  color: var(--teal-dark);
+  font-weight: 600;
+}
+
+.legal-footer {
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+.legal-footer-inner {
+  width: min(calc(100% - 40px), var(--max));
+  margin: 0 auto;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.legal-footer img { width: 132px; display: block; }
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 18px;
+}
+
+.legal-links a {
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.legal-links a[aria-current="page"],
+.legal-links a:hover { color: var(--teal-dark); }
+
+@media (max-width: 680px) {
+  .legal-nav { min-height: 68px; }
+  .legal-brand img { width: 170px; }
+  .legal-main { padding: 62px 0 70px; }
+  .legal-card { border-radius: 22px; }
+  .legal-footer-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .legal-links { justify-content: flex-start; }
+}
+
+/* Page text is static: visitors can't select, highlight or drag it.
+   Form fields stay fully selectable and editable. */
+html, body { -webkit-user-select: none; -moz-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable]:not([contenteditable="false"]) { -webkit-user-select: text; -moz-user-select: text; user-select: text; -webkit-touch-callout: default; }
+img, svg, a { -webkit-user-drag: none; }

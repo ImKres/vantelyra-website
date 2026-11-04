@@ -1,0 +1,85 @@
+/* Light/dark theme for the legal pages and 404 page (layout stays in legal.css). */
+:root {
+  --canvas: #ffffff;
+  --surface: #ffffff;
+  --surface-raised: #f4f8f8;
+  --ink: #12263a;
+  --muted: #55697a;
+  --teal: #57999b;
+  --teal-dark: #2f7377;
+  --line: #dce5e9;
+  --header-glass: rgba(255, 255, 255, .92);
+}
+:root[data-theme="dark"] {
+  --canvas: #111315;
+  --surface: #1b1f22;
+  --surface-raised: #232a2e;
+  --ink: #e2e9e9;
+  --muted: #a6b4b8;
+  --teal: #79afb0;
+  --teal-dark: #8cc3c4;
+  --line: #2f383d;
+  --header-glass: rgba(17, 19, 21, .92);
+}
+
+html, body { background: var(--canvas); color: var(--ink); }
+.legal-header { background: var(--header-glass); border-color: var(--line); box-shadow: none; }
+img.brand-dark { display: none; }
+[data-theme="dark"] img.brand-light { display: none; }
+[data-theme="dark"] img.brand-dark { display: block; }
+
+.legal-eyebrow { color: var(--teal-dark); }
+.legal-main h1, .legal-section h2 { color: var(--ink); }
+.legal-card, .legal-footer { background: var(--surface); border-color: var(--line); box-shadow: none; }
+.legal-intro, .legal-date, .legal-section p, .legal-section li, .legal-links a { color: var(--muted); }
+.legal-callout { color: var(--muted); background: var(--surface-raised); }
+.legal-section a, .legal-callout a, .legal-links a[aria-current="page"], .legal-links a:hover { color: var(--teal-dark); }
+.back-home { color: var(--teal-dark); background: var(--surface); border-color: var(--line); box-shadow: none; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+/* FAQ page */
+.legal-intro a { color: var(--teal-dark); font-weight: 600; }
+.faq-card { padding-block: clamp(8px, 2vw, 18px); }
+.faq-list details + details { border-top: 1px solid var(--line); }
+.faq-list summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  min-height: 64px; padding: 16px 0; list-style: none; cursor: pointer;
+  color: var(--ink); font-size: 1.08rem; font-weight: 600;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: ""; flex: 0 0 auto; width: 14px; height: 14px;
+  background: linear-gradient(var(--teal-dark), var(--teal-dark)) center / 100% 2px no-repeat,
+              linear-gradient(var(--teal-dark), var(--teal-dark)) center / 2px 100% no-repeat;
+  transition: transform .2s ease;
+}
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list details p { max-width: 64ch; margin: 0; padding: 0 0 20px; color: var(--muted); }
+.faq-list details a { color: var(--teal-dark); font-weight: 600; }
+.faq-cta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px;
+  margin-top: 28px; padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--line); border-radius: 28px; background: var(--surface-raised);
+}
+.faq-cta h2 { max-width: 22ch; margin: 0; color: var(--ink); font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 550; line-height: 1.15; letter-spacing: -.03em; }
+.faq-cta p { max-width: 56ch; margin: 10px 0 0; color: var(--muted); }
+.faq-cta-btn {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px;
+  border-radius: 999px; background: #0d2742; color: #fff; font-weight: 600; text-decoration: none;
+}
+[data-theme="dark"] .faq-cta-btn { background: #88b8bc; color: #0d2427; }
+
+/* 404 page */
+.notfound-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.notfound-actions a {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px;
+  border-radius: 999px; font-weight: 600; text-decoration: none;
+  border: 1px solid var(--line); color: var(--ink);
+}
+.notfound-actions a.primary { background: #0d2742; border-color: #0d2742; color: #fff; }
+[data-theme="dark"] .notfound-actions a.primary { background: #88b8bc; border-color: #88b8bc; color: #0d2427; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
